@@ -4,8 +4,8 @@ import java.io.*;
 import java.net.*;
 
 public class Client {
-    BufferedReader input;
-    OutputStream output;
+    private BufferedReader input;
+    private OutputStream output;
     int portNumber;
     Socket clientSocket = null;
     
@@ -120,7 +120,7 @@ public class Client {
                     //       server, because it will only ever get 8 (and ONLY 8)
                     //       characters from the server. If it sends less, this
                     //       loop will get stuck. There was no terminating byte
-                    //       or message to work with, though.
+                    //       or message to work with from the server.
                     while (message.length() < 8) {
                         if (this.input.ready()) {
                             serverByte = (char) input.read();
